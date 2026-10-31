@@ -1,0 +1,8 @@
+# Normalise to LF inside the repository. Matters for the Makefile: make on Linux
+# and macOS chokes on CRLF recipe lines, and this file is edited on Windows.
+* text=auto
+
+# Visual Studio rewrites these with CRLF every time it touches them, so storing
+# them that way keeps the diffs empty.
+*.sln text eol=crlf
+*.vcxproj text eol=crlf

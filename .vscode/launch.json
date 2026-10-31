@@ -1,0 +1,43 @@
+{
+    // F5 in VS Code. Needs the Microsoft C/C++ extension (ms-vscode.cpptools).
+    //
+    // "console": "externalTerminal" is not optional here. The program puts the
+    // console into raw mode and draws with ANSI escapes; VS Code's internal
+    // debug console is not a real terminal, so it cannot deliver keystrokes and
+    // the escapes would print as garbage. An external window behaves correctly.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run hackertyper",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/hackertyper.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "externalTerminal",
+            "preLaunchTask": "build (MSVC)"
+        },
+        {
+            "name": "Run hackertyper on its own source",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/hackertyper.exe",
+            "args": ["--file", "hackertyper.c", "--speed", "4"],
+            "cwd": "${workspaceFolder}",
+            "console": "externalTerminal",
+            "preLaunchTask": "build (MSVC)"
+        },
+        {
+            // The tests write to stdout and never touch the terminal, so the
+            // integrated console is the right place for them.
+            "name": "Run tests",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/test_hackertyper.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "preLaunchTask": "build tests (MSVC)"
+        }
+    ]
+}

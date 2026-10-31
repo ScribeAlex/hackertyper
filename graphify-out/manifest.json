@@ -1,0 +1,20 @@
+{
+  "hackertyper.c": {
+    "mtime": 1793345120.1560092,
+    "seen": 1793345591.935526,
+    "ast_hash": "34fc522a7ecfc28ac02879e03404091b",
+    "semantic_hash": "34fc522a7ecfc28ac02879e03404091b"
+  },
+  "README.md": {
+    "mtime": 1793346197.0854127,
+    "seen": 1793346601.2262425,
+    "ast_hash": "863119a705ef8883f3f94fec12fe3f6c",
+    "semantic_hash": "863119a705ef8883f3f94fec12fe3f6c"
+  },
+  "graphify-out/memory/query_20261030_072327_3163b722_why_does_platform_layer__four_function_abstraction.md": {
+    "mtime": 1793345007.804284,
+    "seen": 1793345591.935526,
+    "ast_hash": "042efb2c95b9a8ce800ee8e9322a6f22",
+    "semantic_hash": "042efb2c95b9a8ce800ee8e9322a6f22"
+  }
+}

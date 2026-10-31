@@ -1,0 +1,65 @@
+{
+    // Build tasks for VS Code. The MSVC tasks need cl.exe on PATH, which means
+    // starting VS Code from a Developer Command Prompt: `code .`
+    // The MinGW task needs gcc on PATH instead.
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build (MSVC)",
+            "type": "shell",
+            "command": "cl.exe",
+            "args": [
+                "/nologo",
+                "/W4",
+                "/Zi",
+                "/D_CRT_SECURE_NO_WARNINGS",
+                "hackertyper.c",
+                "/Fe:hackertyper.exe"
+            ],
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": "$msCompile",
+            "group": { "kind": "build", "isDefault": true }
+        },
+        {
+            "label": "build tests (MSVC)",
+            "type": "shell",
+            "command": "cl.exe",
+            "args": [
+                "/nologo",
+                "/W4",
+                "/Zi",
+                "/D_CRT_SECURE_NO_WARNINGS",
+                "test_hackertyper.c",
+                "/Fe:test_hackertyper.exe"
+            ],
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "run tests",
+            "type": "shell",
+            "command": "${workspaceFolder}/test_hackertyper.exe",
+            "options": { "cwd": "${workspaceFolder}" },
+            "dependsOn": "build tests (MSVC)",
+            "group": { "kind": "test", "isDefault": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "build (MinGW gcc)",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-std=c99",
+                "-O2",
+                "-Wall",
+                "-Wextra",
+                "-g",
+                "-o",
+                "hackertyper.exe",
+                "hackertyper.c"
+            ],
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": "$gcc"
+        }
+    ]
+}
